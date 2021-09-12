@@ -1,0 +1,5 @@
+module yajl {
+    umbrella "yajl"
+    export *
+}
+
