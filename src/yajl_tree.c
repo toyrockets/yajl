@@ -400,7 +400,7 @@ static int handle_null (void *ctx)
 /*
  * Public functions
  */
-yajl_val yajl_tree_parse (const char *input,
+yajl_val yajl_tree_parse (const char *input, size_t length,
                           char *error_buffer, size_t error_buffer_size)
 {
     static const yajl_callbacks callbacks =
@@ -434,7 +434,7 @@ yajl_val yajl_tree_parse (const char *input,
 
     status = yajl_parse(handle,
                         (unsigned char *) input,
-                        strlen (input));
+                        length);
     status = yajl_complete_parse (handle);
     if (status != yajl_status_ok) {
         if (error_buffer != NULL && error_buffer_size > 0) {
